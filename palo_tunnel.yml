@@ -9,11 +9,8 @@
      
      
   tasks:
-  - name: Load Variables
-    include_vars: vars.yml
-
-  - name: new var
-    include_vars: vars4.yml
+  - import_role:
+      name: role1
 
   - name: Configure Tunnel Interface
     panos_tunnel:
