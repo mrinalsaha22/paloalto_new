@@ -1,0 +1,32 @@
+- name: Create a Paloalto Firewall Tunnel
+  hosts: 192.168.164.136
+  connection: local
+  gather_facts: False
+
+  collections:
+   - paloaltonetworks.panos 
+
+     
+     
+  tasks:
+  - name: Load Variables
+    include_vars: vars.yml
+
+  - name: new var
+    include_vars: vars4.yml
+
+  - name: Configure Tunnel Interface
+    panos_tunnel:
+        provider: 
+          ip_address: 192.168.164.136
+          username: admin
+          password: admin
+        state: 'present'
+        if_name: 'newtest'
+        #ip: ['{{ 10.1.1.1/32 }}']
+        comment: 'test name'
+        zone_name: 'vpn'
+        vr_name: 'VR1'
+        commit: False
+    
+  
