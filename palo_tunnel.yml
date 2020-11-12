@@ -9,8 +9,8 @@
      
      
   tasks:
-  - import_role:
-      name: role1
+  
+      
 
   - name: Configure Tunnel Interface
     panos_tunnel:
@@ -19,8 +19,8 @@
           username: admin
           password: admin
         state: 'present'
-        if_name: 'newtest'
-        #ip: ['{{ 10.1.1.1/32 }}']
+        if_name: "tunnel.1"
+        ip: ['{{ 10.1.1.1/32 }}']
         comment: 'test name'
         zone_name: 'vpn'
         vr_name: 'VR1'
