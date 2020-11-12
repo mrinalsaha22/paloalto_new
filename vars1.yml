@@ -1,0 +1,6 @@
+provider:
+  ip_address: '{{ inventory_hostname }}'
+  api_key: LUFRPT1Cb0sxaEtqREdIZktueHhoN0FzamgwQ3dRcEU9MkEzM3lDRzVYWkFmSW5Jd0JIdzFuUXpiaFViQ1FuWHZHbit2ZURFN3B1SWsxZDBKaTh4QkhQVlhqSEpCM2JHbA==
+  #username: admin
+  #password: Admin@123
+  #validate_certs: no

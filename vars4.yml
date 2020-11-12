@@ -1,0 +1,52 @@
+tunnelinterface:
+    -  if_name: "tunnel.3100"
+       ip: "10.1.1.1/32"
+       comment: "Tunnel Interface for XYZ purpose"
+
+
+
+static_route:
+
+    -  name: 'Tunnel-Route-1'
+       destination: '10.0.0.0/8'
+       interface: 'tunnel.3100'
+
+ike_crypto_profile:
+
+    -  name: 'IKE-Crypto-Name'
+       dh_group: 'group2'
+       authentication: 'sha1'
+       encryption: 'aes-128-cbc'
+       lifetime_hours: '8'
+
+
+ike_gateway:
+
+    -  name: 'IKE-Gateway-Name'
+       peer_ip_value: '1.2.3.4'
+       pre_shared_key: 'CHANGEME'
+       ikev1_crypto_profile: 'IKE-Crypto-Name'
+
+ipsec_profile:
+
+    -  name: 'IPSEC_CRYPTO_NAME'
+       esp_authentication: 'sha1'
+       esp_encryption: 'aes-128-cbc'
+       dh_group: 'group2'
+       lifetime_seconds: '3600'
+
+
+
+ipsec_tunnel:
+
+    - name: 'IPSecTunnel-Ansible'
+      tunnel_interface: 'tunnel.3100'
+      ak_ike_gateway: 'IKE-Gateway-Name'
+      ak_ipsec_crypto_profile: 'IPSEC_CRYPTO_NAME'
+
+ipsec_ipv4_proxyid:
+
+    -  name: 'IPSec-ProxyId'
+       tunnel_name: 'IPSecTunnel-Ansible'
+       local: '0.0.0.0/0'
+       remote: '192.168.1.0/24'
