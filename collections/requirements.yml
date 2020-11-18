@@ -1,6 +1,6 @@
 ---
   collections:
     # Install a collection from Ansible Galaxy.
-    - name: https://github.com/PaloAltoNetworks/pan-os-ansible.git
+    - name: paloaltonetworks.panos
       type: git
       version: devel 
