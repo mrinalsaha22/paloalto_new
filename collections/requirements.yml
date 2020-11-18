@@ -3,4 +3,4 @@
     # Install a collection from Ansible Galaxy.
     - name: paloaltonetworks.panos
       type: git
-      version: devel 
+      version: 2.2.1 
