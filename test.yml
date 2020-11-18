@@ -1,0 +1,14 @@
+collections:
+    - paloaltonetworks.panos
+
+tasks:
+- name: Get the system info
+  panos_op:
+      provider: 
+        ip_address: "{{ server }}"
+        api_key: LUFRPT05Qm8vSWlpMkl3T2dadzIwSGNBYjN1VEREanM9SkFla3ZuZ3RKNHdnOFl6bkx5TzFJM2RKOVdtVUUyOVVUT0h1bngzdzQydWxLd1FNc3AxWnR1aFZwYzVPNDVFWg==
+      cmd: 'show system info'
+  register: res
+
+- debug:
+      msg: '{{ res.stdout }}'

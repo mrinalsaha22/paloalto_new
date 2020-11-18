@@ -16,7 +16,7 @@
     panos_tunnel:
         provider: 
           ip_address: 192.168.164.136
-          username: admin
+          api_key: "{ api_key }""
           password: admin
         state: 'present'
         if_name: "tunnel.1"
